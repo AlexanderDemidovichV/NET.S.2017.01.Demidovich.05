@@ -22,9 +22,9 @@ namespace Task1
         /// <summary>
         /// Returns greatest common divisor of specified integers using Euclidian method
         /// </summary>
-        /// <param name="a">A first integer.</param>
-        /// <param name="b">A second integer.</param>
-        /// <returns>A greatest common divisor of specified integers <paramref name="a"/> and <paramref name="b"/>.</returns>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// <returns>The greatest common divisor of specified integers <paramref name="a"/> and <paramref name="b"/>.</returns>
         public static int CalculateGcdEuclideanAlgorithm(int a, int b)
         {
             if (a == 0) return Math.Abs(b);
@@ -41,10 +41,10 @@ namespace Task1
         /// <summary>
         /// Returns greatest common divisor of specified integers using Euclidian method
         /// </summary>
-        /// <param name="a">A first integer.</param>
-        /// <param name="b">A second integer.</param>
-        /// <param name="c">A third integer.</param>
-        /// <returns>A greatest common divisor of specified integers <paramref name="a"/>, <paramref name="b"/> and <paramref name="c"/>.</returns>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// <param name="c">The third integer.</param>
+        /// <returns>The greatest common divisor of specified integers <paramref name="a"/>, <paramref name="b"/> and <paramref name="c"/>.</returns>
         public static int CalculateGcdEuclideanAlgorithm(int a, int b, int c)
         {
             int gcd = CalculateGcdEuclideanAlgorithm(a, b);
@@ -55,7 +55,7 @@ namespace Task1
         /// Returns greatest common divisor of specified integers using Euclidian method
         /// </summary>
         /// <param name="array">An array of integer instances.</param>
-        /// <returns>A greatest common divisor of specified integers.</returns>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         /// <exception cref="System.ArgumentNullException"><paramref name="array"/> is null.</exception>
         public static int CalculateGcdEuclideanAlgorithm(params int[] array)
         {
@@ -74,7 +74,7 @@ namespace Task1
         /// <param name="a">The first integer.</param>
         /// <param name="b">The second integer.</param>
         /// <param name="time">The time in milliseconds required for Euclidian method calculation.</param>
-        /// <returns>A greatest common divisor of specified integers and time in milliseconds required for Euclidian method calculation.</returns>
+        /// <returns>The greatest common divisor of specified integers and time in milliseconds required for Euclidian method calculation.</returns>
         public static int CalculateGcdEuclideanAlgorithm(int a, int b, out double time)
         {
             return GcdLeadTime(CalculateGcdEuclideanAlgorithm, a, b, out time);
@@ -83,9 +83,9 @@ namespace Task1
         /// <summary>
         /// Returns greatest common divisor of specified integers using Stains's method
         /// </summary>
-        /// <param name="a">A first integer.</param>
-        /// <param name="b">A second integer.</param>
-        /// <returns>A greatest common divisor of specified integers.</returns>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         public static int CalculateGcdStainsAlgorithm(int a, int b)
         {
             if (a == 0) return Math.Abs(b);
@@ -101,8 +101,21 @@ namespace Task1
         /// <summary>
         /// Returns greatest common divisor of specified integers using Stains's method
         /// </summary>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// /// <param name="c">The third integer.</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
+        public static int CalculateGcdStainsAlgorithm(int a, int b, int c)
+        {
+            int gcd = CalculateGcdStainsAlgorithm(a, b);
+            return CalculateGcdStainsAlgorithm(gcd, c);
+        }
+
+        /// <summary>
+        /// Returns greatest common divisor of specified integers using Stains's method
+        /// </summary>
         /// <param name="array">An array of integer instances.</param>
-        /// <returns>A greatest common divisor of specified integers.</returns>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         /// <exception cref="System.ArgumentNullException"><paramref name="array"/> is null.</exception>
         public static int CalculateGcdStainsAlgorithm(params int[] array)
         {
@@ -118,10 +131,10 @@ namespace Task1
         /// <summary>
         /// Returns greatest common divisor of specified integers using Stains's method
         /// </summary>
-        /// <param name="a">A first integer.</param>
-        /// <param name="b">A second integer.</param>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">THe second integer.</param>
         /// <param name="time">The time in milliseconds required for Euclidian method calculation.</param>
-        /// <returns>A greatest common divisor of specified integers and time in milliseconds required for Stain's method calculation.</returns>
+        /// <returns>The greatest common divisor of specified integers and time in milliseconds required for Stain's method calculation.</returns>
         public static int CalculateGcdStainsAlgorithm(int a, int b, out double time)
         {
             return GcdLeadTime(CalculateGcdEuclideanAlgorithm, a, b, out time);
@@ -135,10 +148,10 @@ namespace Task1
         /// Returns greatest common divisor of specified integers using specified method
         /// </summary>
         /// <param name="gcdCalculate">A delegate that specifies method of calculation</param>
-        /// <param name="a">A first function parameter</param>
-        /// <param name="b">A second function parameter</param>
+        /// <param name="a">The first function parameter</param>
+        /// <param name="b">The second function parameter</param>
         /// <param name="time">A time in milliseconds required for specified method calculation</param>
-        /// <returns>A greatest common divisor of specified integers and time in milliseconds required for specified method calculation</returns>
+        /// <returns>The greatest common divisor of specified integers and time in milliseconds required for specified method calculation</returns>
         private static int GcdLeadTime(GcdCalculate gcdCalculate, int a, int b, out double time)
         {
             System.Diagnostics.Stopwatch myStopwatch = new System.Diagnostics.Stopwatch();
