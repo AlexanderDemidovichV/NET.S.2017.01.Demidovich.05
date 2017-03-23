@@ -73,7 +73,7 @@ namespace Task1
         /// </summary>
         /// <param name="a">The first integer.</param>
         /// <param name="b">The second integer.</param>
-        /// <param name="time">The time in milliseconds required for Euclidian method calculation.</param>
+        /// <param name="time">The time in milliseconds to determine the execution time for Euclidian method calculation.</param>
         /// <returns>The greatest common divisor of specified integers and time in milliseconds required for Euclidian method calculation.</returns>
         public static int CalculateGcdEuclideanAlgorithm(int a, int b, out double time)
         {
@@ -133,7 +133,7 @@ namespace Task1
         /// </summary>
         /// <param name="a">The first integer.</param>
         /// <param name="b">THe second integer.</param>
-        /// <param name="time">The time in milliseconds required for Euclidian method calculation.</param>
+        /// <param name="time">The time in milliseconds to determine the execution time for Euclidian method calculation.</param>
         /// <returns>The greatest common divisor of specified integers and time in milliseconds required for Stain's method calculation.</returns>
         public static int CalculateGcdStainsAlgorithm(int a, int b, out double time)
         {
