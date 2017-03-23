@@ -18,7 +18,7 @@ namespace Task2
         /// </summary>
         /// <param name="value">The number to convert.</param>
         /// <returns>A string representation of bits with length 64.</returns>
-        public static string DoubleToBinary(double value)
+        public static string DoubleToBinary(this double value)
         {
             var long64bits = BitConverter.ToInt64(BitConverter.GetBytes(value), 0);
             var sign64 = long64bits >> 63 & 0x01;
