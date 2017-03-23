@@ -27,10 +27,31 @@ namespace Task1.Tests
             }
         }
 
+        public static IEnumerable<TestCaseData> TestData2
+        {
+            get
+            {
+                yield return new TestCaseData(12, 0).Returns(12);
+                yield return new TestCaseData(0, 12).Returns(12);
+                yield return new TestCaseData(0, 0).Returns(0);
+                yield return new TestCaseData(12, 12).Returns(12);
+                yield return new TestCaseData(-12, 2).Returns(2);
+                yield return new TestCaseData(-5, 10).Returns(5);
+                yield return new TestCaseData(-5, 0).Returns(5);
+                yield return new TestCaseData(0, -8).Returns(8);
+            }
+        }
+
         [Test, TestCaseSource("TestData")]
         public static double CalculateEuclidianGcd_Test_Yeild(int[] a)
         {
             return GCDCalculator.CalculateGcdEuclideanAlgorithm(a);
+        }
+
+        [Test, TestCaseSource("TestData2")]
+        public static double CalculateEuclidianGcd_Test_Yeild(int a, int b)
+        {
+            return GCDCalculator.CalculateGcdEuclideanAlgorithm(a, b);
         }
 
         [Test, TestCaseSource("TestData")]
