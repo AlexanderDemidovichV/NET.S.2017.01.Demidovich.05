@@ -32,5 +32,11 @@ namespace Task1.Tests
         {
             return GCDCalculator.CalculateGcdEuclideanAlgorithm(a);
         }
+
+        [Test, TestCaseSource("TestData")]
+        public static double CalculateStainsGcd_Test_Yeild(int[] a)
+        {
+            return GCDCalculator.CalculateGcdStainsAlgorithm(a);
+        }
     }
 }
