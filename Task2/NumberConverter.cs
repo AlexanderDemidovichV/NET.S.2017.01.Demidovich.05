@@ -29,9 +29,7 @@ namespace Task2
 
         public static string DoubleToBinaryString(this double value)
         {
-            ConvertStruct convertStruct = new ConvertStruct();
-
-            convertStruct.DoubleBitsRepresentation = value;
+            ConvertStruct convertStruct = new ConvertStruct {DoubleBitsRepresentation = value};
 
             return Convert.ToString(convertStruct.LongBitsRepresentation, 2).PadLeft(64, '0');
         }
