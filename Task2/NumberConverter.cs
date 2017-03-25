@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Task2
 {
@@ -21,9 +22,30 @@ namespace Task2
             var exponent64 = long64bits >> 52 & 0x7FF;
             var fraction64 = long64bits & 0xFFFFFFFFFFFFF;
 
-            return String.Format($"{Convert.ToString(sign64, 2)}" +
-                                 $"{Convert.ToString(exponent64, 2).PadLeft(11, '0')}" +
-                                 $"{Convert.ToString(fraction64, 2).PadLeft(52, '0')}");
+            return $"{Convert.ToString(sign64, 2)}" +
+                   $"{Convert.ToString(exponent64, 2).PadLeft(11, '0')}" +
+                   $"{Convert.ToString(fraction64, 2).PadLeft(52, '0')}";
+        }
+
+        public static string DoubleToBinaryString(this double value)
+        {
+            ConvertStruct convertStruct = new ConvertStruct();
+
+            convertStruct.DoubleBitsRepresentation = value;
+
+            return Convert.ToString(convertStruct.LongBitsRepresentation, 2).PadLeft(64, '0');
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        private struct ConvertStruct
+        {
+            [FieldOffset(0)] private double double64Representation;
+
+            [FieldOffset(0)] private readonly long long64Representation;
+
+            public long LongBitsRepresentation => long64Representation;
+
+            public double DoubleBitsRepresentation {  set { double64Representation = value; } }
         }
 
         #endregion

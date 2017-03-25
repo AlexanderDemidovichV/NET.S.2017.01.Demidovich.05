@@ -29,7 +29,7 @@ namespace Task2.Tests
         [Test, TestCaseSource("TestData")]
         public static string CalculateDoubleToBinary_Test_Yeild(double value)
         {
-            return value.DoubleToBinary();
+            return value.DoubleToBinaryString();
         }
     }
 }
