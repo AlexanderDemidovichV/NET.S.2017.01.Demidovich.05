@@ -26,11 +26,7 @@ namespace Task1
         /// <param name="b">The second integer.</param>
         /// <param name="c">The third integer.</param>
         /// <returns>The greatest common divisor of specified integers <paramref name="a"/>, <paramref name="b"/> and <paramref name="c"/>.</returns>
-        public static int CalculateGcdEuclideanAlgorithm(int a, int b, int c)
-        {
-            int gcd = CalculateGcd(CalculateGcdEuclidean, a, b);
-            return CalculateGcd(CalculateGcdEuclidean, gcd, c);
-        }
+        public static int CalculateGcdEuclideanAlgorithm(int a, int b, int c) => CalculateGcd(CalculateGcdEuclideanAlgorithm, a, b, c);
 
         /// <summary>
         /// Returns greatest common divisor of specified integers using Euclidian method
@@ -65,11 +61,7 @@ namespace Task1
         /// <param name="b">The second integer.</param>
         /// /// <param name="c">The third integer.</param>
         /// <returns>The greatest common divisor of specified integers.</returns>
-        public static int CalculateGcdStainsAlgorithm(int a, int b, int c)
-        {
-            int gcd = CalculateGcd(CalculateGcdStains, a, b);
-            return CalculateGcd(CalculateGcdStains, gcd, c);
-        }
+        public static int CalculateGcdStainsAlgorithm(int a, int b, int c) => CalculateGcd(CalculateGcdStainsAlgorithm, a, b, c);
 
         /// <summary>
         /// Returns greatest common divisor of specified integers using Stains's method
@@ -77,10 +69,7 @@ namespace Task1
         /// <param name="array">An array of integer instances.</param>
         /// <returns>The greatest common divisor of specified integers.</returns>
         /// <exception cref="System.ArgumentNullException"><paramref name="array"/> is null.</exception>
-        public static int CalculateGcdStainsAlgorithm(params int[] array)
-        {
-            return CalculateGcd(CalculateGcdStainsAlgorithm, array);
-        }
+        public static int CalculateGcdStainsAlgorithm(params int[] array) => CalculateGcd(CalculateGcdStainsAlgorithm, array);
 
         /// <summary>
         /// Returns greatest common divisor of specified integers using Stains's method
@@ -129,6 +118,12 @@ namespace Task1
             b = Math.Abs(b);
 
             return gcdCalculate(a, b);
+        }
+
+        private static int CalculateGcd(Func<int, int, int> gcdCalculate, int a, int b, int c)
+        {
+            int gcd = CalculateGcd(gcdCalculate, a, b);
+            return CalculateGcd(gcdCalculate, gcd, c);
         }
 
         private static int CalculateGcd(Func<int, int, int> gcdCalculate, params int[] array)
