@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Task1.Tests
 {
-    public class GCDCalculatorTests
+    public class GcdCalculatorTests
     {
         public static IEnumerable<TestCaseData> TestData
         {
@@ -40,19 +40,19 @@ namespace Task1.Tests
         [Test, TestCaseSource("TestData")]
         public static double CalculateEuclidianGcd_Test_Yeild(int[] a)
         {
-            return GCDCalculator.CalculateGcdEuclideanAlgorithm(a);
+            return GcdCalculator.CalculateGcdEuclideanAlgorithm(a);
         }
 
         [Test, TestCaseSource("TestData2")]
         public static double CalculateEuclidianGcd_Test_Yeild(int a, int b)
         {
-            return GCDCalculator.CalculateGcdEuclideanAlgorithm(a, b);
+            return GcdCalculator.CalculateGcdEuclideanAlgorithm(a, b);
         }
 
         [Test, TestCaseSource("TestData")]
         public static double CalculateStainsGcd_Test_Yeild(int[] a)
         {
-            return GCDCalculator.CalculateGcdStainsAlgorithm(a);
+            return GcdCalculator.CalculateGcdStainsAlgorithm(a);
         }
     }
 }
