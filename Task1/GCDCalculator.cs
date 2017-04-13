@@ -107,6 +107,13 @@ namespace Task1
             return result;
         }
 
+        /// <summary>
+        /// Returns greatest common divisor of integers using specified method.
+        /// </summary>
+        /// <param name="gcdCalculate">A delegate that specifies method of calculation</param>
+        /// <param name="a">The first function parameter</param>
+        /// <param name="b">The second function parameter</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         private static int CalculateGcd(Func<int, int, int> gcdCalculate, int a, int b)
         {
             if (a == 0) return Math.Abs(b);
@@ -120,12 +127,25 @@ namespace Task1
             return gcdCalculate(a, b);
         }
 
+        /// <summary>
+        /// Returns greatest common divisor of integers using specified method.
+        /// </summary>
+        /// <param name="gcdCalculate">A delegate that specifies method of calculation</param>
+        /// <param name="a">The first function parameter</param>
+        /// <param name="b">The second function parameter</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         private static int CalculateGcd(Func<int, int, int> gcdCalculate, int a, int b, int c)
         {
             int gcd = CalculateGcd(gcdCalculate, a, b);
             return CalculateGcd(gcdCalculate, gcd, c);
         }
 
+        /// <summary>
+        /// Returns greatest common divisor of integers using specified method.
+        /// </summary>
+        /// <param name="gcdCalculate">A delegate that specifies method of calculation</param>
+        /// <param name="array">An array of integer instances.</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         private static int CalculateGcd(Func<int, int, int> gcdCalculate, params int[] array)
         {
             if (array == null)
@@ -137,8 +157,20 @@ namespace Task1
             return array.Aggregate(gcdCalculate);
         }
 
+        /// <summary>
+        /// Returns greatest common divisor of specified integers using Euclidian method
+        /// </summary>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// <returns>The greatest common divisor of specified integers <paramref name="a"/> and <paramref name="b"/>.</returns>
         private static int CalculateGcdEuclidean(int a, int b) => b == 0 ? a : CalculateGcdEuclideanAlgorithm(b, a % b);
 
+        /// <summary>
+        /// Returns greatest common divisor of specified integers using Stains's method
+        /// </summary>
+        /// <param name="a">The first integer.</param>
+        /// <param name="b">The second integer.</param>
+        /// <returns>The greatest common divisor of specified integers.</returns>
         private static int CalculateGcdStains(int a, int b)
         {
             if ((a % 2 == 0) && (b % 2 == 0)) return 2 * CalculateGcdStainsAlgorithm(a / 2, b / 2);
